@@ -45,10 +45,23 @@ curl -X POST -F "q=Hello World" http://localhost:5000/detect
 Response:
 ```json
 [
-  {
-    "confidence": 100.0,
-    "language": "en"
-  }
+    {
+        "confidence": 14.372545558597471,
+        "language": "en"
+    },
+    {
+        "confidence": 6.843209870000674,
+        "language": "tl"
+    },
+    {
+        "confidence": 6.677430046744076,
+        "language": "cy"
+    },
+    {
+        "confidence": 4.767848182534421,
+        "language": "st"
+    },
+    ...
 ]
 ```
 
