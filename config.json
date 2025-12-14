@@ -1,0 +1,17 @@
+{
+    "lingua": {
+        "languages": "all",
+        "use_preloaded_language_models": true,
+        "use_low_accuracy_mode": false
+    },
+    "translator": {
+        "model_id": "facebook/nllb-200-distilled-600M",
+        "cpu_only": false
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 5000,
+        "use_ssl": false,
+        "workers": 1
+    }
+}
