@@ -64,7 +64,7 @@ async def get_detect_params(request: Request):
              raise HTTPException(status_code=400, detail="Invalid JSON")
     else:
          form = await request.form()
-         form = await request.form()
+
          q = form.get("q")
          if not q:
               # Return empty/partial model or raise? 
@@ -140,6 +140,5 @@ async def translate(params: TranslateRequest = Depends(get_translate_params)):
 if __name__ == "__main__":
     host = CONFIG["server"]["host"]
     port = CONFIG["server"]["port"]
-    workers = CONFIG["server"]["workers"] # Note: uvicorn.run doesn't support 'workers' directly with app instance, 
-                                          # usually needs app string. For dev/testing with instance, it's single process.
+
     uvicorn.run(app, host=host, port=port)
