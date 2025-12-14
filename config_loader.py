@@ -3,7 +3,7 @@ import os
 
 DEFAULT_CONFIG = {
     "lingua": {
-        "languages": "all",
+
         "use_preloaded_language_models": True,
         "use_low_accuracy_mode": False
     },

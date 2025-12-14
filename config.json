@@ -1,6 +1,5 @@
 {
     "lingua": {
-        "languages": "all",
         "use_preloaded_language_models": true,
         "use_low_accuracy_mode": false
     },
