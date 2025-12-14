@@ -1,4 +1,4 @@
-# TranslateServer
+# TranslationServer
 
 A simple translation server with an api similar to [LibreTranslate](https://libretranslate.com/).
 
