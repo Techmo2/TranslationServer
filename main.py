@@ -19,10 +19,6 @@ async def translation_worker():
     while True:
         future, text, source, target = await translation_queue.get()
         try:
-            # Offload heavy model work to thread if necessary, but here we run directly 
-            # (or use run_in_executor if blocking). 
-            # The generate method is blocking on CPU/GPU.
-            # Ideally we use a thread pool for the blocking call.
             loop = asyncio.get_running_loop()
             result = await loop.run_in_executor(None, translator_instance.translate_text, text, source, target)
             future.set_result(result)
@@ -67,8 +63,6 @@ async def get_detect_params(request: Request):
 
          q = form.get("q")
          if not q:
-              # Return empty/partial model or raise? 
-              # Better to return object and let endpoint validate
               return DetectRequest(q="") 
          return DetectRequest(q=q)
 
@@ -100,7 +94,6 @@ async def detect(params: DetectRequest = Depends(get_detect_params)):
     if not translator_instance:
         raise HTTPException(status_code=503, detail="Server initializing")
     
-    # Use LanguageManager from translator instance
     try:
         results = translator_instance.language_manager.detect_language(request_q)
         
